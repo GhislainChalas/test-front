@@ -1,0 +1,17 @@
+<div class="container-fluid layout d-flex flex-column align-items-center">
+  <img src="../assets/Angular_full_color_logo 1angular_full_color_logo.svg" class="angular-icon"> 
+  <div class="technical-test-home">
+    <div class="questions">
+        <p class="questions-text"> {{quiz.length}} {{ quiz.length > 1 ? 'questions' : 'question'}}</p>
+        <h3 class="questions-title"> Mon test technique</h3>
+        <div class="d-flex justify-content-center">
+          <button mat-raised-button class="begin-button" color="primary" (click)="goToQuiz()">Démarrer</button>
+        </div>
+    </div>
+  </div>
+  <div class="best-score d-flex flex-column align-items-center">
+    <img src="../../../assets/🏆cup.svg">
+      <h4>Meilleur score</h4>
+      <h2>{{ bestScore != null ? bestScore : '-/-'}}</h2>
+  </div>
+</div>

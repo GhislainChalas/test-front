@@ -1,0 +1,39 @@
+<div class="question d-flex flex-column align-items-center">
+
+    <div class="title">
+        <h2>{{question.label}}</h2>
+    </div>
+
+    <div [ngSwitch]="question.answerType">
+                <div *ngSwitchCase="'text'">
+                    <mat-form-field>
+                        <mat-label>Votre réponse</mat-label>
+                        <input class="input-text" matInput (change)="inputChange($event)">
+                    </mat-form-field>
+                
+                </div>
+
+                <div *ngSwitchCase="'choice'" class="text-choice">
+                    <mat-radio-group aria-label="Choisissez votre réponse">
+                        <div class="row justify-content-between">
+                            <div class="col-5 multiple-checkbox mb-3" *ngFor="let choice of question.choices">
+                                <mat-radio-button [labelPosition]="'before'" value="choice" (click)="inputChange(choice)">{{choice}}</mat-radio-button>
+                            </div>
+                        </div>
+                    </mat-radio-group>
+                </div>
+        
+                <div *ngSwitchCase="'multiple-choice'">
+                    <div class="row justify-content-between">        
+                            <div class="col-5 multiple-checkbox mb-3" *ngFor="let choice of question.choices; let i = index">
+                                <mat-checkbox  [labelPosition]="'before'" (change)="inputChange(choice)">
+                                    {{choice}}
+                                </mat-checkbox>
+                                {{answer}}
+                            </div>
+                        </div>       
+                </div>
+               
+    </div>
+    <button mat-raised-button class="valid-button" color="primary" (click)="answerEmit(answer)">Valider</button>
+</div>

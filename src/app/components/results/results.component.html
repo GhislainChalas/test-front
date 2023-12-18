@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="results-layout">
+
+    </div>
+    <div class="results-body">
+
+        <div class="results-resume d-flex flex-column align-items-center">
+            <img src="../../../assets/🎉youpi.svg">
+            <h2> Le Quiz est terminé !</h2>
+            <p class="answer-number"> {{correctAnswers}} / {{answers.length}}</p>
+            <p class="good-answers">réponses justes</p>
+            <div *ngIf="newBestScore" class="row">
+                <p>Meilleur score : {{correctAnswers}} / {{answers.length}} </p>
+            </div>
+        </div>
+
+        <div class="results-details">
+            <p class="result-details-title">Détail des résultats :</p>
+            <div *ngFor="let answer of answers">
+                <div class="row justify-content-around">
+                    <p class="col-5">{{answer.label}}</p>
+                    <img class="col-1 wrongOrTrue" src="../../../assets/true.svg" *ngIf="answer.rightAnswer">
+                    <img class="col-1 wrongOrTrue" src="../../../assets/wrong.svg" *ngIf="!answer.rightAnswer">
+                </div>
+            </div>
+            
+        </div>
+    
+    </div>
+</div>

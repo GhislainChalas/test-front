@@ -1,0 +1,16 @@
+<div class="container-fluid questions-layout d-flex justify-content-between pt-3">
+    <div class="question-number-div ml-2">
+        <div>
+            <p>Question {{actualQuestion.index +1}} / {{quiz.length}}</p>
+        </div>
+        
+
+    </div>
+    <div class="timer-div d-flex justify-content-end">
+        <div>
+            <p> 0{{ secsRemaining | async }}</p>
+        </div>
+    </div>
+</div>
+
+<app-question [question]="actualQuestion.question" (answerEvent)="addAnswers($event)"></app-question>

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { Question } from './types/question';
+import { HttpService } from './services/http.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'test-front';
+  public title = 'test-front';
 }
